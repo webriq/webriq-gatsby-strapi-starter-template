@@ -618,6 +618,9 @@ pre tt:before,
 pre tt:after {
   content: "";
 }
+.draft {
+  color:#e41000;
+}
 @media only screen and (max-width: 480px) {
   html {
     font-size: 100%;

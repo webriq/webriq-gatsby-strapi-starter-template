@@ -41,9 +41,6 @@ export const pageQuery = graphql`
           excerpt
           createdAt(fromNow: true)
           updatedAt(fromNow: true)
-          fields {
-            slug
-          }
           author {
             id
           }

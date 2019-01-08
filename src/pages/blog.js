@@ -58,7 +58,7 @@ class BlogPage extends React.Component {
       items.push(
         <div className="post" key={post.id}>
           <h2 className={style.title}>
-            <Link to={post.fields.slug}>{post.title}</Link>
+            <Link to={post.slug}>{post.title}</Link>
           </h2>
           <small> ({post.createdAt})</small>
           <br />
@@ -92,8 +92,11 @@ class BlogPage extends React.Component {
 export default BlogPage
 
 export const loadMoreQuery = graphql`
-  query {
-    allStrapiPosts(sort: { fields: [createdAt], order: DESC }) {
+  query  {
+    allStrapiPosts(
+      filter: {status:{eq: "published"}}
+      sort: { fields: [createdAt], order: DESC }
+      ){
       edges {
         node {
           id
@@ -101,9 +104,7 @@ export const loadMoreQuery = graphql`
           excerpt
           createdAt(fromNow: true)
           updatedAt(fromNow: true)
-          fields {
-            slug
-          }
+          slug
           banner {
             url
           }

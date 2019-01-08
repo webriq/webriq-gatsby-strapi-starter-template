@@ -21,15 +21,15 @@ exports.createPages = ({ graphql, actions }) => {
 
   const getPosts = makeRequest(
     graphql,
-    `
-      query {
-        allStrapiPosts {
+    `query {
+        allStrapiPosts (
+          filter:{status:{ne: "unpublished"}}
+          sort: {fields:[createdAt], order: DESC}
+          ) {
           edges {
             node {
               id
-              fields {
-                slug
-              }
+              slug
             }
           }
         }
@@ -39,7 +39,7 @@ exports.createPages = ({ graphql, actions }) => {
     // Create individual pages
     result.data.allStrapiPosts.edges.forEach(({ node }) => {
       createPage({
-        path: `/${node.fields.slug}`,
+        path: `/${node.slug}`,
         component: path.resolve(`./src/templates/post/single.js`),
         context: {
           id: node.id,
