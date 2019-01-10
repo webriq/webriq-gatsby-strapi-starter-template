@@ -29,7 +29,9 @@ exports.createPages = ({ graphql, actions }) => {
           edges {
             node {
               id
-              slug
+              fields {
+                slug
+              }
             }
           }
         }
@@ -39,7 +41,7 @@ exports.createPages = ({ graphql, actions }) => {
     // Create individual pages
     result.data.allStrapiPosts.edges.forEach(({ node }) => {
       createPage({
-        path: `/${node.slug}`,
+        path: `/${node.fields.slug}`,
         component: path.resolve(`./src/templates/post/single.js`),
         context: {
           id: node.id,

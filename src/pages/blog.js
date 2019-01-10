@@ -58,7 +58,7 @@ class BlogPage extends React.Component {
       items.push(
         <div className="post" key={post.id}>
           <h2 className={style.title}>
-            <Link to={post.slug}>{post.title}</Link>
+            <Link to={post.fields.slug}>{post.title}</Link>
           </h2>
           <small> ({post.createdAt})</small>
           <br />
@@ -104,7 +104,9 @@ export const loadMoreQuery = graphql`
           excerpt
           createdAt(fromNow: true)
           updatedAt(fromNow: true)
-          slug
+          fields {
+            slug
+          }
           banner {
             url
           }

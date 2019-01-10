@@ -41,7 +41,9 @@ export const query = graphql`
         email
         profile
       }
-      slug
+      fields {
+        slug
+      }
       metaTitle
       metaKeywords
       metaDescription

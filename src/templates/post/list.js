@@ -30,6 +30,7 @@ export default BlogList
 export const pageQuery = graphql`
   query blogListTemplateQuery($skip: Int!, $limit: Int!) {
     allStrapiPosts(
+      filter: {status:{eq: "published"}}
       sort: { fields: [createdAt], order: DESC }
       limit: $limit
       skip: $skip
@@ -41,6 +42,9 @@ export const pageQuery = graphql`
           excerpt
           createdAt(fromNow: true)
           updatedAt(fromNow: true)
+          fields {
+            slug
+          }
           author {
             id
           }
