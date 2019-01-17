@@ -1,37 +1,20 @@
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="//cms.webriq.com/assets/cms.css">
-    <title>Content Manager</title>
-    <base href="/admin/">
-  </head>
-  <body data-gr-c-s-loaded="true" class="ember-application nav-md">
-    <div id="ember360" class="ember-view">
-      <div class="cms cms-login-container">
-        <div class="cms cms-text">
-          <h2 class="cms cms-message-title">
-            <img class="logo cms-logo" src="//cms.webriq.com/assets/images/logo-orig.png">
-          </h2>
-          <div class="cms cms-login-message">
-            Login to your CMS to add or edit content.
-          </div>
-          <br>
-          <button href="#" class="btn--raised btn--lightblue cms cms-login-button">
-            Login Now
-          </button>
-        </div>
-      </div>
-    </div>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>
-      $("document").ready(function() {
-        $.getJSON("/site.json", function(data) {
-          $("button").off("click").on("click", function() {
-            window.location.href = data.siteAdminUrl;
-          }); 
-        });
-      });
-    </script>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <title>Content Manager</title>
+  <!-- Include the stylesheets from your site here -->
+  <link rel="stylesheet" href="//cms.webriq.com/assets/cms.css" />
+  <!-- Include a CMS specific stylesheet here -->
+  <script>CMS_ENV = "production";</script>
+
+  <base href="/admin/">
+</head>
+<body>
+  <script src="//cms.webriq.com/assets/vendor.js"></script>
+  <script src="//cms.webriq.com/assets/cms.js"></script>
+</body>
 </html>
