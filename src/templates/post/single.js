@@ -16,11 +16,13 @@ export default ({ data }) => {
           title: data.strapiPosts.metaTitle,
           keywords: data.strapiPosts.metaKeywords,
           description: data.strapiPosts.metaDescription,
+          noIndex: data.strapiPosts.status === "draft" ? true : false
         },
       }}
     >
       <DEBUG data={data} />
       <h2>{data.strapiPosts.title}</h2>
+      <p>{data.strapiPosts.status === "draft"? <span>Status: <strong className="draft">Draft</strong></span> : ""}</p>
       <ReactMarkdown escapeHtml={false} source={data.strapiPosts.body} />
       <Link to="/blog">Go back</Link>
     </Layout>
@@ -45,6 +47,7 @@ export const query = graphql`
       metaTitle
       metaKeywords
       metaDescription
+      status
     }
   }
 `

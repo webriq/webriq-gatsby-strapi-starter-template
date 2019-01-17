@@ -63,8 +63,8 @@ module.exports = {
           `profiles`,
         ],
         loginData: {
-          identifier: process.env.API_USER_EMAIL || 'buildbot@webriq.com',
-          password: process.env.API_USER_PASSWORD || 'buildbot',
+          identifier: process.env.API_USER_EMAIL || 'galangdj@gmail.com',
+          password: process.env.API_USER_PASSWORD || 'test123',
         },
       },
     },

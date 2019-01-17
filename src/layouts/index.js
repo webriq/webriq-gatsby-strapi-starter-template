@@ -20,6 +20,12 @@ const Layout = ({ head, children }) => (
       const siteMetaKeywords =
         get(head, 'meta.keywords') ||
         get(data, 'site.siteMetadata.meta.keywords')
+      console.log(get(head, 'meta.noIndex'))
+      const siteNoIndex = get(head, 'meta.noIndex')? 
+              {
+                name: 'robots',
+                content: "noindex",
+              } : {}
 
       return (
         <>
@@ -34,6 +40,7 @@ const Layout = ({ head, children }) => (
                 name: 'keywords',
                 content: siteMetaKeywords,
               },
+              siteNoIndex
             ]}
           >
             <html lang="en" />

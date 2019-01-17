@@ -21,9 +21,11 @@ exports.createPages = ({ graphql, actions }) => {
 
   const getPosts = makeRequest(
     graphql,
-    `
-      query {
-        allStrapiPosts {
+    `query {
+        allStrapiPosts (
+          filter:{status:{ne: "unpublished"}}
+          sort: {fields:[createdAt], order: DESC}
+          ) {
           edges {
             node {
               id

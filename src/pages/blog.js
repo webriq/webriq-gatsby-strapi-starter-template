@@ -92,8 +92,11 @@ class BlogPage extends React.Component {
 export default BlogPage
 
 export const loadMoreQuery = graphql`
-  query {
-    allStrapiPosts(sort: { fields: [createdAt], order: DESC }) {
+  query  {
+    allStrapiPosts(
+      filter: {status:{eq: "published"}}
+      sort: { fields: [createdAt], order: DESC }
+      ){
       edges {
         node {
           id
