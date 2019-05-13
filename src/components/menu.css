@@ -1,0 +1,35 @@
+.navigation {
+  padding: 3rem;
+}
+.navigation .nav-item > a {
+  border: none;
+  box-shadow: none;
+  display: block;
+  padding: 0.5rem 0;
+}
+.navigation .dropdown {
+  padding: 0;
+}
+.navigation .dropdown-toggle {
+  padding: 0;
+  background-color: transparent;
+  color: var(--blue);
+  border:none;
+}
+.navigation .dropdown .dropdown-toggle:focus {
+  box-shadow: none !important;
+  outline: none !important;
+  background-color: transparent;
+  color: var(--blue);
+}
+
+.navigation .dropdown .dropdown-toggle-split {
+  padding: 0.5rem;
+  background-color: transparent !important;
+}
+.navigation .dropdown .dropdown-menu {
+  transform: translate3d(0px, 40px, 0px) !important;
+}
+.navigation .dropdown-menu .dropdown-item {
+  box-shadow: none;
+}

@@ -1,0 +1,10 @@
+.sticky-wrapper {
+  transform: unset !important;
+}
+.is-sticky .menu-container {
+  padding: 0.5rem 0;
+}
+.menu-container {
+  padding: 1rem 0;
+  transition: padding 400ms ease-in-out;
+}
